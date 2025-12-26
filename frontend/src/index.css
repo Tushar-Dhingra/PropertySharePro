@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@theme {
+  /* Primary colors */
+  --color-primary-50: #E8F5E9;
+  --color-primary-100: #C8E6C9;
+  --color-primary-200: #A5D6A7;
+  --color-primary-300: #81C784;
+  --color-primary-400: #66BB6A;
+  --color-primary-500: #2D4F39;
+  --color-primary-600: #245132;
+  --color-primary-700: #1B432A;
+  --color-primary-800: #123521;
+  --color-primary-900: #0A2715;
+  --color-primary: #2D4F39;
+  --color-primary-foreground: #FFFFFF;
+
+  /* Slate colors */
+  --color-slate-50: #F8FAFC;
+  --color-slate-100: #F1F5F9;
+  --color-slate-200: #E2E8F0;
+  --color-slate-300: #CBD5E1;
+  --color-slate-400: #94A3B8;
+  --color-slate-500: #64748B;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1E293B;
+  --color-slate-900: #0F172A;
+
+  /* Font family */
+  --font-sans: 'Inter', system-ui, sans-serif;
+
+  /* Border radius */
+  --radius: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+
+  /* Box shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+@layer base {
+  body {
+    background-color: var(--color-slate-50);
+    color: var(--color-slate-900);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
