@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import { useNavigate } from 'react-router-dom';
 import { Navbar } from '../components/layout/Navbar';
 import { Button } from '../components/ui/Button';
 import { Input } from '../components/ui/Input';
@@ -15,6 +16,7 @@ import { Card, CardContent } from '../components/ui/Card';
 export const Properties: React.FC = () => {
     const { isAdmin } = useAuth();
     const queryClient = useQueryClient();
+    const navigate = useNavigate();
 
     // Search and filter state
     const [search, setSearch] = useState('');
@@ -121,7 +123,7 @@ export const Properties: React.FC = () => {
                         <h1 className="text-3xl font-bold text-slate-900">Properties</h1>
                         <p className="text-slate-600 mt-1">Manage your property listings</p>
                     </div>
-                    <Button onClick={() => window.location.href = '/upload'}>
+                    <Button onClick={() => navigate('/upload')}>
                         <Plus className="h-4 w-4 mr-2" />
                         Add Property
                     </Button>
@@ -300,7 +302,7 @@ export const Properties: React.FC = () => {
                                                             <Copy className="h-4 w-4" />
                                                         </button>
                                                         <button
-                                                            onClick={() => window.location.href = `/properties/${property._id}/edit`}
+                                                            onClick={() => navigate(`/properties/${property._id}/edit`)}
                                                             className="p-2 text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
                                                             title="Edit"
                                                         >

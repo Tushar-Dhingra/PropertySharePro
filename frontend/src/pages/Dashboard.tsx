@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
+import { useNavigate } from "react-router-dom";
 import { Navbar } from "../components/layout/Navbar";
 import {
   Card,
@@ -26,6 +27,7 @@ import {
 
 export const Dashboard: React.FC = () => {
   const { isAdmin } = useAuth();
+  const navigate = useNavigate();
 
   const { data: analytics, isLoading: analyticsLoading } = useQuery({
     queryKey: ["dashboard-analytics"],
@@ -231,7 +233,7 @@ export const Dashboard: React.FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 <Card
                   className="cursor-pointer hover:shadow-md transition-shadow"
-                  onClick={() => (window.location.href = "/users")}
+                  onClick={() => navigate("/users")}
                 >
                   <CardContent className="p-6 flex items-center space-x-4">
                     <div className="p-3 bg-primary-100 rounded-lg text-primary-600">
@@ -249,7 +251,7 @@ export const Dashboard: React.FC = () => {
                 </Card>
                 <Card
                   className="cursor-pointer hover:shadow-md transition-shadow"
-                  onClick={() => (window.location.href = "/properties")}
+                  onClick={() => navigate("/properties")}
                 >
                   <CardContent className="p-6 flex items-center space-x-4">
                     <div className="p-3 bg-blue-50 rounded-lg text-blue-600">
@@ -265,7 +267,7 @@ export const Dashboard: React.FC = () => {
                 </Card>
                 <Card
                   className="cursor-pointer hover:shadow-md transition-shadow"
-                  onClick={() => (window.location.href = "/upload")}
+                  onClick={() => navigate("/upload")}
                 >
                   <CardContent className="p-6 flex items-center space-x-4">
                     <div className="p-3 bg-green-50 rounded-lg text-green-600">
@@ -305,6 +307,7 @@ export const Dashboard: React.FC = () => {
 };
 
 const EmployeeStatsTable: React.FC = () => {
+  const navigate = useNavigate();
   const [search, setSearch] = React.useState("");
   const [timeFilter, setTimeFilter] = React.useState<"today" | "week">("today");
   const [sortConfig, setSortConfig] = React.useState<{
@@ -487,7 +490,7 @@ const EmployeeStatsTable: React.FC = () => {
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                     <button
-                      onClick={() => (window.location.href = `/users`)}
+                      onClick={() => navigate("/users")}
                       className="hover:bg-orange-200 rounded-2xl p-3 text-primary-600 hover:text-primary-900 hover:cursor-pointer"
                     >
                       View
